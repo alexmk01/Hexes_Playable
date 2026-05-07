@@ -1,0 +1,48 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using ModestTree;
+
+namespace Zenject
+{
+	public abstract class PlaceholderFactoryBase<TValue> : IPlaceholderFactory, IValidatable
+	{
+		private IProvider _provider;
+
+		private InjectContext _injectContext;
+
+		protected abstract IEnumerable<Type> ParamTypes { get; }
+
+		[Inject]
+		private void Construct(IProvider provider, InjectContext injectContext)
+		{
+			Assert.IsNotNull(provider);
+			Assert.IsNotNull(injectContext);
+			_provider = provider;
+			_injectContext = injectContext;
+		}
+
+		protected TValue CreateInternal(List<TypeValuePair> extraArgs)
+		{
+			try
+			{
+				object result = _provider.GetInstance(_injectContext, extraArgs);
+				if (_injectContext.Container.IsValidating && result is ValidationMarker)
+				{
+					return default(TValue);
+				}
+				Assert.That(result?.GetType().DerivesFromOrEqual<TValue>() ?? true);
+				return (TValue)result;
+			}
+			catch (Exception e)
+			{
+				throw new ZenjectException("Error during construction of type '{0}' via {1}.Create method!".Fmt(typeof(TValue), GetType()), e);
+			}
+		}
+
+		public virtual void Validate()
+		{
+			_provider.GetInstance(_injectContext, ValidationUtil.CreateDefaultArgs(ParamTypes.ToArray()));
+		}
+	}
+}

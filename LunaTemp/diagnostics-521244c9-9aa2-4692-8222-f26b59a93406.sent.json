@@ -1,0 +1,63 @@
+{
+  "BuildID": "521244c9-9aa2-4692-8222-f26b59a93406",
+  "Command": "project:deploy",
+  "ProjectID": "a03561e1f55580f458310c012613bedc",
+  "ProjectStateHash": "f87bef3a2bed742dff5c498b8d6fe5159bf40334bd70a5a874dafab49a251b81",
+  "StageCompletedAt": 3,
+  "EarliestFatalError": 0,
+  "StartTime": 1778114007253,
+  "EndTime": 1778114036934,
+  "PlaygroundUserID": 35568,
+  "OperatingSystem": "win32",
+  "UnityPackageID": null,
+  "TargetPlatform": "playground",
+  "UnityVersion": "2022.3.62f3",
+  "LunaVersion": "7.2.0",
+  "LogCount": 2,
+  "Logs": [
+    {
+      "LogID": "61e8855a-1784-4b5f-a9ab-e4696f7cdcd0",
+      "Order": 2,
+      "Timestamp": 1778114037435,
+      "Stage": 3,
+      "ErrorType": 3,
+      "ErrorCode": "LP3007",
+      "Description": "You are not using any custom events",
+      "Details": [
+        "You are not using any custom events. It is recommended to use custom events to have a better understanding of the playable."
+      ],
+      "DescriptionValues": [
+        ""
+      ],
+      "DetailsValues": [
+        ""
+      ],
+      "LogCount": 1,
+      "LinePosition": null,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    },
+    {
+      "LogID": "13177db2-eac8-4074-aa8d-6c183a843d4e",
+      "Order": 0,
+      "Timestamp": 1778114014525,
+      "Stage": 1,
+      "ErrorType": 2,
+      "ErrorCode": "LP1014",
+      "Description": "We recommend running Runtime Analysis to find and remove all unused code",
+      "Details": [
+        "Navigate to the Runtime Analysis → Code tab to enable code stripping. Before uploading the playable, please make sure to have played all scenario’s of the playable in a development build to make Runtime Analysis work properly."
+      ],
+      "DescriptionValues": [],
+      "DetailsValues": [],
+      "LogCount": 1,
+      "LinePosition": 0,
+      "FilePath": "",
+      "ClassName": "",
+      "MemberName": "",
+      "Severity": 0
+    }
+  ]
+}
